@@ -47,7 +47,7 @@ export default function LoginPage() {
           loginSuccess({
             id: "1",
             email: email,
-            name: "Demo User",
+            name: "Rajendar",
           }),
         )
       } else {

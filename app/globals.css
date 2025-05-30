@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 188 85% 40%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 188 85% 40%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 200 50% 8%;
+    --foreground: 0 0% 98%;
+    --card: 200 50% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 200 50% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 188 85% 40%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 200 50% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 200 50% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 200 50% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 200 50% 15%;
+    --input: 200 50% 15%;
+    --ring: 188 85% 40%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom gym-themed styles matching the reference */
+.gradient-text {
+  @apply bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent;
+}
+
+.gym-button {
+  @apply bg-orange-500 hover:bg-orange-600 text-white font-bold uppercase tracking-wide;
+}
+
+.gym-primary {
+  @apply bg-teal-600 text-white;
+}
+
+.gym-accent {
+  @apply bg-orange-500 text-white;
+}
+
+/* Hero section background */
+.hero-bg {
+  background: linear-gradient(135deg, #0f4c5c 0%, #1a9cb0 50%, #2dd4da 100%);
+}
+
+/* Card backgrounds */
+.gym-card {
+  @apply bg-teal-700/90 backdrop-blur-sm border-teal-500/20;
+}
+
+.gym-card-dark {
+  @apply bg-slate-800/90 backdrop-blur-sm border-slate-600/20;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-teal-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-teal-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-teal-500;
+}
+
+/* Typography styles matching reference */
+.gym-heading {
+  @apply font-black uppercase tracking-wider;
+}
+
+.gym-subheading {
+  @apply font-bold uppercase tracking-wide text-sm;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-oswald);
+}
+
+p,
+span,
+div,
+label,
+input,
+textarea,
+button {
+  font-family: var(--font-roboto);
+}

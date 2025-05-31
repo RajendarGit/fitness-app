@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import TrainersCard from "@/components/trainers-card";
+import InnerHero from "@/components/inner-hero";
+
 export default function CertifiedFitnessCoachesPage() {
   const [selected, setSelected] = useState<number | null>(null);
 
@@ -48,11 +50,9 @@ export default function CertifiedFitnessCoachesPage() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-teal-900 via-primary/30 to-teal-700 min-h-screen">
+    <section className="bg-gradient-to-br from-teal-900 via-primary/30 to-teal-700 min-h-screen">
+      <InnerHero src="/images/trainers.jpg" alt="Certified Fitness Coaches" />
       <div className="container mx-auto">
-        <h1 className="text-4xl font-black text-white uppercase mb-12 text-center">
-          Certified Fitness Coaches
-        </h1>
         <div className="flex flex-wrap gap-8 justify-center transition-all duration-500">
           {selected === null ? (
             trainers.map((trainer, idx) => (

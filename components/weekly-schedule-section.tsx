@@ -1,8 +1,7 @@
 import React from "react";
-import { Button } from "./ui/button";
 import { scheduleData } from "@/data";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import ViewAll from "./view-all";
+
 const WeeklyScheduleSection = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-teal-800/50">
@@ -11,39 +10,18 @@ const WeeklyScheduleSection = () => {
           <h2 className="text-4xl font-black text-white uppercase">
             Weekly Schedules
           </h2>
-          <Link className="btn-theme flex items-center gap-2" href="/schedule">
-            VIEW ALL<ArrowRight className="w-4 h-4" />
-          </Link>
+          <ViewAll href="/schedule" />
         </div>
 
         <div className="bg-teal-900/80 rounded-lg p-6 overflow-x-auto">
           <table className="w-full text-white">
             <thead>
               <tr className="border-b border-teal-600">
-                <th className="text-left py-4 px-2 font-bold uppercase text-sm">
-                  Time
-                </th>
-                <th className="text-center py-4 px-2 font-bold uppercase text-sm">
-                  Monday
-                </th>
-                <th className="text-center py-4 px-2 font-bold uppercase text-sm">
-                  Tuesday
-                </th>
-                <th className="text-center py-4 px-2 font-bold uppercase text-sm">
-                  Wednesday
-                </th>
-                <th className="text-center py-4 px-2 font-bold uppercase text-sm">
-                  Thursday
-                </th>
-                <th className="text-center py-4 px-2 font-bold uppercase text-sm">
-                  Friday
-                </th>
-                <th className="text-center py-4 px-2 font-bold uppercase text-sm">
-                  Saturday
-                </th>
-                <th className="text-center py-4 px-2 font-bold uppercase text-sm">
-                  Sunday
-                </th>
+                {["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map((day, index) => (
+                  <th key={index} className="text-left py-4 px-2 font-bold uppercase text-sm">
+                    {day}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>

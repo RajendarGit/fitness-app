@@ -1,8 +1,5 @@
 import React from "react";
-import { Card } from "./ui/card";
-import { Button } from "./ui/button";
 import { trainers } from "@/data";
-import { imgPath } from "@/utils";
 import {
   Carousel,
   CarouselContent,
@@ -11,9 +8,9 @@ import {
   CarouselNext,
 } from "./ui/carousel";
 import Image from "next/image";
-import Link from "next/link";
 import TrainersCard from "./trainers-card";
-import { ArrowRight } from "lucide-react";
+import ViewAll from "./view-all";
+
 const TrainersSection = () => {
   // Show only the first 6 trainers
   const visibleTrainers = trainers.slice(0, 6);
@@ -25,9 +22,7 @@ const TrainersSection = () => {
           <h2 className="text-4xl font-black text-white uppercase">
             Certified Fitness Coaches
           </h2>
-          <Link className="btn-theme flex items-center gap-2" href="/trainers">
-            View all<ArrowRight className="w-4 h-4" />
-          </Link>
+          <ViewAll href="/trainers" />
         </div>
         <div className="relative flex items-center">
           <Carousel

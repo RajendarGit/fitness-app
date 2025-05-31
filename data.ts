@@ -2,8 +2,9 @@ export const navItems: { href: string; label: string }[] = [
     { href: "/", label: "HOME" },
     { href: "/classes", label: "CLASSES" },
     { href: "/trainers", label: "TRAINERS" },
-    { href: "/about", label: "ABOUT US" },
-    { href: "/contact", label: "CONTACT US" },
+    { href: "/workout-plan", label: "WORKOUT PLAN" },
+    { href: "/about-us", label: "ABOUT US" },
+    { href: "/contact-us", label: "CONTACT US" },
 ];
 
 export const stats: { number: string; label: string }[] = [
@@ -140,3 +141,24 @@ export const trainers: { name: string; title: string; image: string; bio: string
         bio: "Lucas is a certified strength and functional training instructor with a passion for helping people achieve their fitness goals. He has a background in strength and functional training and is dedicated to helping his clients reach their full potential.",
     },
 ];
+
+export const workoutPlans: { beginner: { day: string; workout: string }[]; intermediate: { day: string; workout: string }[]; advanced: { day: string; workout: string }[] } = {
+    beginner: [
+      { day: "Monday", workout: "Full Body Circuit: Squats, Push-ups, Lunges, Plank (3x10)" },
+      { day: "Wednesday", workout: "Upper Body: Dumbbell Press, Rows, Bicep Curls (3x12)" },
+      { day: "Friday", workout: "Lower Body: Goblet Squats, Glute Bridges, Calf Raises (3x12)" },
+    ],
+    intermediate: [
+      { day: "Monday", workout: "Push Day: Bench Press, Shoulder Press, Triceps Dips (4x8-10)" },
+      { day: "Wednesday", workout: "Pull Day: Pull-ups, Barbell Rows, Face Pulls (4x8-10)" },
+      { day: "Friday", workout: "Leg Day: Deadlifts, Lunges, Leg Curls (4x8-10)" },
+      { day: "Saturday", workout: "Core & Cardio: Hanging Leg Raises, Russian Twists, HIIT (3x15)" },
+    ],
+    advanced: [
+      { day: "Monday", workout: "Chest & Triceps: Incline Bench, Weighted Dips, Skullcrushers (5x5-8)" },
+      { day: "Tuesday", workout: "Back & Biceps: Weighted Pull-ups, T-Bar Row, Hammer Curls (5x5-8)" },
+      { day: "Thursday", workout: "Legs: Squats, Romanian Deadlifts, Leg Press (5x5-8)" },
+      { day: "Friday", workout: "Shoulders & Core: Overhead Press, Lateral Raises, Planks (5x8-12)" },
+      { day: "Saturday", workout: "Full Body HIIT: Kettlebell Swings, Burpees, Sprints (4 rounds)" },
+    ],
+  };

@@ -170,3 +170,8 @@ button {
   from { opacity: 0; transform: translateX(40px); }
   to { opacity: 1; transform: translateX(0); }
 }
+
+          
+.btn-theme {
+  @apply bg-gradient-to-r from-primary/50 to-primary/80 backdrop-blur-sm text-primary-foreground hover:bg-primary/80 font-bold uppercase tracking-wide px-6 py-3 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0;
+}

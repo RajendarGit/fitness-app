@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { scheduleData } from "@/data";
-
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 const WeeklyScheduleSection = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-teal-800/50">
@@ -10,9 +11,9 @@ const WeeklyScheduleSection = () => {
           <h2 className="text-4xl font-black text-white uppercase">
             Weekly Schedules
           </h2>
-          <Button>
-            VIEW ALL
-          </Button>
+          <Link className="btn-theme flex items-center gap-2" href="/schedule">
+            VIEW ALL<ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
         <div className="bg-teal-900/80 rounded-lg p-6 overflow-x-auto">

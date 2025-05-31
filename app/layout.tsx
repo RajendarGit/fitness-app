@@ -22,13 +22,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Providers>
-        <body className={`${oswald.className} ${roboto.className}`}>
+      <body className={`${oswald.className} ${roboto.className}`}>
+        <Providers>
           <Navbar />
           <main className="bg-teal-900 min-h-screen">{children}</main>
           <Footer />
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }

@@ -13,20 +13,25 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Dumbbell, Eye, EyeOff } from "lucide-react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { registerSchema, RegisterSchema } from "@/schema/register"
 
 export default function RegisterPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  })
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
   const { isLoading, error, isAuthenticated } = useAppSelector((state) => state.auth)
   const dispatch = useAppDispatch()
   const router = useRouter()
+
+  const {
+    register: formRegister,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterSchema>({
+    resolver: zodResolver(registerSchema),
+  })
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -38,43 +43,17 @@ export default function RegisterPage() {
     dispatch(clearError())
   }, [dispatch])
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    if (formData.password !== formData.confirmPassword) {
-      dispatch(registerFailure("Passwords do not match"))
-      return
-    }
-
-    if (formData.password.length < 6) {
-      dispatch(registerFailure("Password must be at least 6 characters"))
-      return
-    }
-
+  const onSubmit = (data: RegisterSchema) => {
     dispatch(registerStart())
-
-    // Simulate API call
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      // Mock registration - in real app, this would be an API call
+    setTimeout(() => {
       dispatch(
         registerSuccess({
           id: Date.now().toString(),
-          email: formData.email,
-          name: formData.name,
-        }),
+          email: data.email,
+          name: data.name,
+        })
       )
-    } catch (err) {
-      dispatch(registerFailure("Registration failed. Please try again."))
-    }
+    }, 1000)
   }
 
   return (
@@ -88,7 +67,7 @@ export default function RegisterPage() {
           <CardDescription className="text-teal-200">Create your account to get started</CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {error && (
               <Alert variant="destructive" className="bg-red-900/50 border-red-500/50 text-red-200">
                 <AlertDescription>{error}</AlertDescription>
@@ -101,14 +80,15 @@ export default function RegisterPage() {
               </Label>
               <Input
                 id="name"
-                name="name"
                 type="text"
                 placeholder="Enter your full name"
-                value={formData.name}
-                onChange={handleChange}
+                {...formRegister("name")}
                 className="bg-teal-700 border-teal-600 text-white placeholder-teal-300"
                 required
               />
+              {errors.name && (
+                <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -117,14 +97,15 @@ export default function RegisterPage() {
               </Label>
               <Input
                 id="email"
-                name="email"
                 type="email"
                 placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
+                {...formRegister("email")}
                 className="bg-teal-700 border-teal-600 text-white placeholder-teal-300"
                 required
               />
+              {errors.email && (
+                <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -134,14 +115,15 @@ export default function RegisterPage() {
               <div className="relative">
                 <Input
                   id="password"
-                  name="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Create a password"
-                  value={formData.password}
-                  onChange={handleChange}
+                  {...formRegister("password")}
                   className="bg-teal-700 border-teal-600 text-white placeholder-teal-300"
                   required
                 />
+                {errors.password && (
+                  <p className="text-red-400 text-xs mt-1">{errors.password.message}</p>
+                )}
                 <Button
                   type="button"
                   variant="ghost"
@@ -161,14 +143,15 @@ export default function RegisterPage() {
               <div className="relative">
                 <Input
                   id="confirmPassword"
-                  name="confirmPassword"
                   type={showConfirmPassword ? "text" : "password"}
                   placeholder="Confirm your password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
+                  {...formRegister("confirmPassword")}
                   className="bg-teal-700 border-teal-600 text-white placeholder-teal-300"
                   required
                 />
+                {errors.confirmPassword && (
+                  <p className="text-red-400 text-xs mt-1">{errors.confirmPassword.message}</p>
+                )}
                 <Button
                   type="button"
                   variant="ghost"
@@ -183,7 +166,7 @@ export default function RegisterPage() {
 
             <Button
               type="submit"
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold uppercase tracking-wide"
+              className="w-full"
               disabled={isLoading}
             >
               {isLoading ? "CREATING ACCOUNT..." : "CREATE ACCOUNT"}

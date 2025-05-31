@@ -13,6 +13,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import TrainersCard from "./trainers-card";
+import { ArrowRight } from "lucide-react";
 const TrainersSection = () => {
   // Show only the first 6 trainers
   const visibleTrainers = trainers.slice(0, 6);
@@ -24,9 +25,9 @@ const TrainersSection = () => {
           <h2 className="text-4xl font-black text-white uppercase">
             Certified Fitness Coaches
           </h2>
-          <Button>
-            <Link href="/trainers">View all</Link>
-          </Button>
+          <Link className="btn-theme flex items-center gap-2" href="/trainers">
+            View all<ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
         <div className="relative flex items-center">
           <Carousel

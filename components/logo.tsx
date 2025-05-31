@@ -6,8 +6,8 @@ const Logo = () => {
   return (
     <Link href="/" className="flex items-center space-x-3">
       <Dumbbell className="h-8 w-8 text-primary" />
-      <span className="text-2xl font-black uppercase tracking-wider bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">
-        Power Gym
+      <span className="text-2xl font-black uppercase tracking-wider bg-gradient-to-r from-teal-500 to-primary bg-clip-text text-transparent">
+        Booster Power
       </span>
     </Link>
   );

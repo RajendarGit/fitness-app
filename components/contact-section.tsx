@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, User } from "lucide-react";
 import { Phone } from "lucide-react";
 import { MapPin } from "lucide-react";
 import React from "react";
@@ -14,20 +14,24 @@ const ContactSection = () => {
             <h2 className="text-4xl font-black uppercase mb-8">Get In Touch</h2>
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <MapPin className="h-6 w-6 text-primary" />
+                <MapPin className="h-4 w-4 text-primary" />
                 <span>123 Fitness Street, Gym City, GC 12345</span>
               </div>
               <div className="flex items-center space-x-4">
-                <Phone className="h-6 w-6 text-primary" />
+                <Phone className="h-4 w-4 text-primary" />
                 <span>+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-4">
-                <Mail className="h-6 w-6 text-primary" />
+                <Mail className="h-4 w-4 text-primary" />
                 <span>info@boosterpower.com</span>
               </div>
               <div className="flex items-center space-x-4">
-                <Clock className="h-6 w-6 text-primary" />
+                <Clock className="h-4 w-4 text-primary" />
                 <span>Mon-Fri: 5AM-11PM | Sat-Sun: 6AM-10PM</span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <User className="h-4 w-4 text-primary" />
+                <span>Designed and developed by Rajendar</span>
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-gradient-to-r from-teal-800/50 to-primary/30 backdrop-blur-sm border-b border-teal-600/20 sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-teal-800/90 to-primary/90 backdrop-blur-sm border-b border-teal-600/20 sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -40,7 +40,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-white hover:text-primary font-bold text-sm uppercase tracking-wide transition-colors"
+                  className="text-white hover:text-teal-700 font-bold text-sm uppercase tracking-wide transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}

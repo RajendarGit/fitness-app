@@ -9,7 +9,7 @@ const NavigationLinks = () => {
         <Link
           key={item.href}
           href={item.href}
-          className="text-white hover:text-primary font-bold text-sm uppercase tracking-wide transition-colors"
+          className="text-white hover:text-teal-700 font-bold text-sm uppercase tracking-wide transition-colors"
         >
           {item.label}
         </Link>

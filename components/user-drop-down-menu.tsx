@@ -51,7 +51,7 @@ const UserDropDownMenu = () => {
             size="sm"
             variant="ghost"
             asChild
-            className="border-primary text-white hover:bg-primary/10 hover:text-primary"
+            className="border-primary text-white hover:bg-primary/10 hover:text-teal-700"
           >
             <Link href="/login">LOGIN</Link>
           </Button>

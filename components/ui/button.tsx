@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default: "tracking-widest",
       },
       variant: {
-        default: "bg-gradient-to-r from-teal-900/80 to-primary/50 backdrop-blur-sm text-primary-foreground hover:bg-primary",
+        default: "bg-gradient-to-r from-teal-900/10 to-primary/80 backdrop-blur-sm text-primary-foreground hover:bg-primary/80",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:

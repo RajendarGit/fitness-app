@@ -3,54 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/com
 import Image from "next/image";
 import { imgPath } from "@/utils";
 import InnerHero from "@/components/inner-hero";
-
-const classes = [
-  {
-    name: "CrossFit",
-    image: imgPath("banner.jpg"),
-    desc: "High-intensity functional training for strength, endurance, and agility."
-  },
-  {
-    name: "Yoga",
-    image: imgPath("female.jpg"),
-    desc: "Find your balance, flexibility, and peace with our expert-led yoga sessions."
-  },
-  {
-    name: "HIIT",
-    image: imgPath("female2.jpg"),
-    desc: "Burn calories fast with high-intensity interval training."
-  },
-  {
-    name: "Boxing",
-    image: imgPath("male2.jpg"),
-    desc: "Unleash your power and improve your cardio with our boxing classes."
-  },
-  {
-    name: "Zumba",
-    image: imgPath("female3.jpg"),
-    desc: "Dance your way to fitness with energetic Zumba sessions."
-  },
-  {
-    name: "Pilates",
-    image: imgPath("female4.jpg"),
-    desc: "Strengthen your core and improve flexibility with Pilates."
-  },
-  {
-    name: "Strength Training",
-    image: imgPath("male5.jpg"),
-    desc: "Build muscle and boost your metabolism with guided strength workouts."
-  },
-  {
-    name: "Cardio Blast",
-    image: imgPath("female5.jpg"),
-    desc: "Heart-pumping cardio classes for all levels."
-  },
-  {
-    name: "Functional Training",
-    image: imgPath("male7.jpg"),
-    desc: "Train for real-life movement and total-body strength."
-  },
-];
+import { classes } from "@/data";
 
 export default function ClassesPage() {
   return (
@@ -68,7 +21,7 @@ export default function ClassesPage() {
             <Card key={idx} className="bg-teal-900/80 border-teal-600/30 text-white shadow-2xl hover:scale-105 hover:shadow-primary/40 transition-transform duration-300 flex flex-col">
               <div className="relative h-48 w-full rounded-t-lg overflow-hidden">
                 <Image
-                  src={cls.image}
+                  src={imgPath(cls.image)}
                   alt={cls.name}
                   fill
                   className="object-cover w-full h-48 group-hover:scale-110 transition-transform duration-300"

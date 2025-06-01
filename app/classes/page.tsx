@@ -1,5 +1,5 @@
 import Container from "@/components/container";
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Image from "next/image";
 import { imgPath } from "@/utils";
 import InnerHero from "@/components/inner-hero";
